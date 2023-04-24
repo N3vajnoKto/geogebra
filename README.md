@@ -8,13 +8,13 @@ spaces are important. <br />
 example : x ^ 2 + sin x / cos(x) + e (x * pi) <br />
 <br />
 Calculator can perform the following operations: <br />
-a + b                    sum of numbers <br />
-a - b                    difference of numbers <br />
-a * b                    multiplication of numbers <br />
-ab                       multiplication of numbers <br />
-a / b                    division of numbers <br />
-a ^ b                   a to degree b <br />
-sqrt(a, b)               root extraction of the degree b <br />
+a + b <br />
+a - b <br />
+a * b <br />
+ab    <br />
+a / b <br />
+a ^ b  <br />
+sqrt(a, b) <br />
 sin(a) <br />
 cos(a) <br />
 tg(a) <br />
