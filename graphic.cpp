@@ -120,7 +120,7 @@ void Graphic::paintEvent(QPaintEvent *) {
 
         xPosition = std::max(static_cast<long double>(5),
                              point.x - str.horizontalAdvance(currentString) - 5);
-        xPosition = std::min(xPosition, static_cast<long double>(this->width()) - 30);
+        xPosition = std::min(xPosition, static_cast<long double>(this->width()) - str.horizontalAdvance(currentString) - 5);
         yPosition = lineHeight + 5;
 
         painter.drawText(xPosition, yPosition, currentString);
@@ -137,7 +137,7 @@ void Graphic::paintEvent(QPaintEvent *) {
 
         xPosition = std::max(static_cast<long double>(5),
                              point.x - str.horizontalAdvance(currentString) - 5);
-        xPosition = std::min(xPosition, static_cast<long double>(this->width()) - 30);
+        xPosition = std::min(xPosition, static_cast<long double>(this->width()) - str.horizontalAdvance(currentString) - 5);
         yPosition = lineHeight + 5;
 
         painter.drawText(xPosition, yPosition, currentString);
