@@ -180,10 +180,10 @@ void Graphic::paintEvent(QPaintEvent *) {
     painter.drawLine(0, point.y, this->width(), point.y);
     painter.drawLine(point.x, 0, point.x, this->height());
 
-    if (lines != nullptr)
+    if (lines != nullptr) {
         for (Equation* to : (*lines)) {
-            painter.setPen(QPen(to->color, 3));
-            QPoint pnt(-1, -1);
+            painter.setPen(QPen(to->color, 3, Qt::SolidLine));
+            QPointF pnt(-1, -1);
             int prev = 0;
 
             StackOnList<std::string> eq = parse<double> (to->text().toStdString());
@@ -195,18 +195,19 @@ void Graphic::paintEvent(QPaintEvent *) {
                 std::pair<bool, double> chck = solution<double>(eq, x);
                 if (chck.first) {
                     double res = chck.second;
-                    int y = point.y - int(res * point.step / point.numberStep);
-                    if (pnt == QPoint(-1, -1) || abs(prev - y) > height()) painter.drawEllipse(QPoint(i, y), 1, 1);
+                    double y = point.y - res * point.step / point.numberStep;
+                    if (pnt == QPointF(-1, -1) || abs(prev - y) > height()) painter.drawPoint(QPointF(i, y));
                     else {
-                        painter.drawLine(pnt, QPoint(i, y));
+                        painter.drawLine(pnt, QPointF(i, y));
                     }
-                    pnt = QPoint(i, y);
+                    pnt = QPointF(i, y);
                     prev = y;
                 } else {
-                    pnt = QPoint(-1,-1);   
+                    pnt = QPointF(-1,-1);
                 }
             }
         }
+    }
 
     painter.restore();
 }

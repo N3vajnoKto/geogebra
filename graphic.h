@@ -16,6 +16,7 @@
 #include <string>
 #include <iomanip>
 #include "equation.h"
+#include <QPainterPath>
 
 class Graphic : public QWidget {
     Q_OBJECT
